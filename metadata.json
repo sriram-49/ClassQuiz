@@ -1,0 +1,5 @@
+{
+  "name": "ClassQuiz",
+  "description": "An application for instructors to generate quizzes using the Gemini API and for students to take them. Features role-based access, timed quizzes, and score tracking.",
+  "requestFramePermissions": []
+}
