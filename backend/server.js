@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const PORT = 5000;
-const SECRET_KEY = 'your-secret-key-change-in-production';
+const PORT = process.env.PORT || 5000;
+const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key-change-in-production';
 
 // Middleware
 app.use(cors());
@@ -451,9 +451,10 @@ app.get('/api/quizzes/:id/results', authenticateToken, (req, res) => {
 
 // ==================== SERVER START ====================
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`✅ Server running on port ${PORT}`);
   console.log(`✅ Database: quiz.db`);
+  console.log(`✅ Environment: ${process.env.NODE_ENV || 'development'}`);
 });
 
 // Graceful shutdown
