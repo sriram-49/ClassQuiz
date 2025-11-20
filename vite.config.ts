@@ -8,6 +8,13 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        allowedHosts: [
+          'classquiz-35ww.onrender.com',
+          'localhost',
+          '.onrender.com',
+          '.vercel.app',
+          '.netlify.app'
+        ]
       },
       plugins: [react()],
       define: {
